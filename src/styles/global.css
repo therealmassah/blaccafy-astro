@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #d946ef;
+  --accent: #d4af37;
+  --gradient-start: #5f0f2f;
+  --gradient-mid: #b0124b;
+  --gradient-end: #d4af37;
+  --bg: #030303;
+  --text: #e7e5e4;
+  --text-bright: #fffaf0;
+  --surface: rgba(255, 255, 255, 0.1);
+  --surface-border: rgba(255, 255, 255, 0.2);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: var(--text);
+}
+
+body::selection {
+  background: rgba(212, 175, 55, 0.3);
+}
+
+#canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+}
+
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+    background 0.25s;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.soul-glow {
+  animation: soulPulse 3s infinite ease-in-out;
+}
+
+@keyframes soulPulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.beat-indicator {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.beat-bar {
+  width: 3px;
+  background: linear-gradient(to top, var(--primary), var(--accent));
+  border-radius: 2px;
+  animation: beatPulse 1.5s infinite ease-in-out;
+}
+
+.beat-bar:nth-child(1) {
+  height: 12px;
+  animation-delay: 0s;
+}
+
+.beat-bar:nth-child(2) {
+  height: 20px;
+  animation-delay: 0.1s;
+}
+
+.beat-bar:nth-child(3) {
+  height: 16px;
+  animation-delay: 0.2s;
+}
+
+.beat-bar:nth-child(4) {
+  height: 24px;
+  animation-delay: 0.3s;
+}
+
+@keyframes beatPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scaleY(0.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.floating-music-note {
+  position: absolute;
+  font-size: 24px;
+  color: var(--primary);
+  opacity: 0.3;
+  animation: float 6s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.floating-music-note:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-music-note:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floating-music-note:nth-child(3) {
+  bottom: 40%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+
+  66% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+}
+
+.join-card-hover {
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0.2, 0.2, 1),
+    background 0.25s;
+  will-change: transform, box-shadow, background;
+}
+
+.join-card-hover:hover,
+.join-card-hover:focus-within {
+  transform: scale(1.045) translateY(-4px);
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.13) 0%, rgba(99, 102, 241, 0.1) 60%, rgba(6, 182, 212, 0.13) 100%);
+  box-shadow: 0 8px 40px 0 rgba(99, 102, 241, 0.3), 0 2px 8px 0 rgba(236, 72, 153, 0.1);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.tag-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.tag-glow .tag-glow-bg {
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  filter: blur(5px);
+  opacity: 0.27;
+  z-index: 0;
+  animation: tagGlowAnim 2.7s ease-in-out infinite alternate;
+}
+
+.tag-glow-1 .tag-glow-bg {
+  background: linear-gradient(90deg, #e879f9, #6366f1);
+  animation-delay: 0s;
+}
+
+.tag-glow-2 .tag-glow-bg {
+  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+  animation-delay: 0.35s;
+}
+
+.tag-glow-3 .tag-glow-bg {
+  background: linear-gradient(90deg, #f472b6, #facc15);
+  animation-delay: 0.7s;
+}
+
+.tag-glow-4 .tag-glow-bg {
+  background: linear-gradient(90deg, #14b8a6, #22d3ee);
+  animation-delay: 1.1s;
+}
+
+.tag-glow-5 .tag-glow-bg {
+  background: linear-gradient(90deg, #f87171, #a3e635);
+  animation-delay: 1.5s;
+}
+
+.tag-glow-6 .tag-glow-bg {
+  background: linear-gradient(90deg, #a855f7, #f472b6);
+  animation-delay: 1.9s;
+}
+
+@keyframes tagGlowAnim {
+  0% {
+    opacity: 0.18;
+    filter: blur(4px) brightness(0.98);
+  }
+
+  50% {
+    opacity: 0.27;
+    filter: blur(7px) brightness(1.06);
+  }
+
+  100% {
+    opacity: 0.15;
+    filter: blur(4px) brightness(0.96);
+  }
+}

@@ -1,0 +1,39 @@
+---
+import { navLinks } from '../data/landing';
+---
+
+<nav class="fixed top-0 left-0 w-full z-30 flex justify-center transition-all duration-300" aria-label="Navigation principale">
+  <div class="glass-panel rounded-2xl px-6 py-3 flex justify-between items-center gap-8 max-w-5xl w-[95%] md:w-4/5 lg:w-3/4 xl:w-2/3 mt-4 mx-auto">
+    <div class="flex items-center gap-2">
+      <div class="beat-indicator" aria-hidden="true">
+        <div class="beat-bar"></div>
+        <div class="beat-bar"></div>
+        <div class="beat-bar"></div>
+        <div class="beat-bar"></div>
+      </div>
+      <span class="text-2xl font-semibold text-transparent bg-clip-text ml-2 tracking-tight" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 0.6px rgba(0,0,0,0.85); text-shadow: 0 1px 2px rgba(0,0,0,0.9);">
+        Blaccafy
+      </span>
+    </div>
+
+    <div class="hidden md:flex gap-6 items-center text-sm font-medium">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'transition-colors',
+            link.variant ? 'px-4 py-2 bg-white/10 rounded-lg border border-amber-200/20 hover:bg-white/15 transition-all' : 'hover:text-fuchsia-300'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <button class="md:hidden text-white" type="button" aria-label="Ouvrir le menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</nav>

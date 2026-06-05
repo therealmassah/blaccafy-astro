@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedBackdrop from '../components/AnimatedBackdrop.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout>
+  <AnimatedBackdrop slot="backdrop" />
+  <SiteHeader slot="header" />
+  <HeroSection />
+  <SiteFooter slot="footer" />
+</BaseLayout>

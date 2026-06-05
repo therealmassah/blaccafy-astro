@@ -1,0 +1,21 @@
+---
+const { title = 'Blaccafy – Le coffre privé de Spykher', description = 'Accès privé au coffre musical de Spykher.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={description}>
+    <title>{title}</title>
+  </head>
+  <body class="relative min-h-screen text-white" style="--primary: #d946ef; --accent: #d4af37; --gradient-start: #5f0f2f; --gradient-mid: #b0124b; --gradient-end: #d4af37; --bg: #030303; --text: #e7e5e4; --text-bright: #fffaf0; background: radial-gradient(circle at 50% 20%, rgba(212,175,55,0.08), transparent 28%), radial-gradient(circle at 26% 24%, rgba(176,18,75,0.18), transparent 34%), #030303; color: var(--text);">
+    <slot name="backdrop" />
+    <slot name="header" />
+    <main>
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>
