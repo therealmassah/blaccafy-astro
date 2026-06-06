@@ -1,5 +1,5 @@
 ---
-import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../data/landing';
+import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessionBullets, dropSessionCopy, dropSessionTitle, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../data/landing';
 ---
 
 <section class="relative z-10 flex items-center justify-center min-h-screen w-full px-4 pt-32 pb-16">
@@ -56,12 +56,24 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
           <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
             Vault
           </span>
+          <span class="ml-2 text-sm font-medium text-amber-200/80">9€/mois</span>
         </h3>
         <p class="text-gray-300 mb-6 text-center">
-          Tu laisses ton contact dans GHL, puis tu passes au checkout Stripe.
+          Accès privé au coffre.
+          <br>
+          Rareté, musique brute, cercle fermé.
         </p>
 
         <form id="blaccafy-lead-form" class="space-y-4">
+          <input
+            name="company"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+            class="hidden"
+          >
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <input
               name="firstName"
@@ -84,19 +96,19 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
           <input
             name="email"
             type="email"
-            placeholder="Ton email"
+            placeholder="Ton email pour l’accès privé"
             autocomplete="email"
             class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm"
             required
           >
 
           <button type="submit" class="cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden">
-            Recevoir mon accès
+            Entrer dans le Vault →
           </button>
         </form>
 
         <p class="text-xs text-gray-400 text-center mt-4">
-          GHL capte le lead. Stripe encaisse. Navidrome délivre l’écoute.
+          Accès membres • Sons hors algorithme • Soutien direct à Spykher
         </p>
       </div>
 
@@ -111,7 +123,13 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
           href={vaultCheckoutUrl}
           class="cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden text-center block"
         >
-          Aller au checkout Stripe →
+          Aller au checkout Vault 9€/mois →
+        </a>
+        <a
+          href="#collector"
+          class="mt-3 w-full py-3 px-6 rounded-lg font-semibold text-white/90 relative overflow-hidden text-center block border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
+        >
+          Voir le Collector →
         </a>
         <p class="text-xs text-gray-400 text-center mt-4">
           Accès membres • Sons hors algorithme • Soutien direct à Spykher
@@ -154,6 +172,65 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
           ))}
         </div>
       </div>
+
+      <div class="glass-panel rounded-2xl p-6 text-left">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+          Offre centrale
+        </p>
+
+        <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+          Blaccafy Vault 9€/mois
+        </h3>
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
+          Le membership de base pour entrer dans le coffre, suivre les drops, et rester au centre du cercle.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès privé</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Contenu rare</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Base récurrente</span>
+        </div>
+      </div>
+
+      <div id="collector" class="glass-panel rounded-2xl p-6 text-left">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+          Upsell
+        </p>
+
+        <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+          {collectorTitle}
+        </h3>
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
+          {collectorCopy}
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
+          {collectorBullets.map((item) => (
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div class="glass-panel rounded-2xl p-6 text-left md:col-span-2">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+          Premier drop
+        </p>
+
+        <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+          {dropSessionTitle}
+        </h3>
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+          {dropSessionCopy}
+        </p>
+
+        <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
+          {dropSessionBullets.map((item) => (
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -162,6 +239,7 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
   const form = document.getElementById('blaccafy-lead-form');
   const leadFormState = document.getElementById('lead-form-state');
   const leadSuccess = document.getElementById('lead-success');
+  const formOpenedAt = Date.now();
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -170,6 +248,13 @@ import { archiveTags, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../
     const formData = new FormData(form);
     formData.set('source', 'landing');
     formData.set('interest', 'music');
+
+    const honeypot = String(formData.get('company') ?? '').trim();
+    const tooFast = Date.now() - formOpenedAt < 2000;
+
+    if (honeypot || tooFast) {
+      return;
+    }
 
     if (button) {
       button.setAttribute('disabled', 'true');
