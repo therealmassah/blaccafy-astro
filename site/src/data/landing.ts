@@ -5,6 +5,9 @@ export const navLinks = [
   { label: 'Entrer', href: '#cta', variant: true }
 ];
 
+export const leadWebhookUrl = 'https://automate.blaccflagg.com/webhook/blaccafy/mvp/lead';
+export const vaultCheckoutUrl = 'https://buy.stripe.com/dRm4gz7M0a8qdgT6rA73G02';
+
 export const featurePills = [
   '🔐 Sons exclusifs',
   '🗝️ Accès privé',
