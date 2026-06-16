@@ -1,11 +1,11 @@
 ---
-import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessionBullets, dropSessionCopy, dropSessionTitle, featurePills, leadWebhookUrl, vaultCheckoutUrl } from '../data/landing';
+import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dropSessionBullets, dropSessionCopy, dropSessionTitle, featurePills, freeBullets, freeCopy, freeLeadCopy, freeTitle, leadWebhookUrl, studioBullets, studioCheckoutUrl, studioCopy, studioPageHref, studioTitle, vaultCheckoutUrl, vipBullets, vipCheckoutUrl, vipCopy, vipPageHref, vipSubtitle, vipTitle } from '../data/landing';
 ---
 
-<section class="relative z-10 flex items-center justify-center min-h-screen w-full px-4 pt-32 pb-16">
+<section class="relative z-10 flex items-center justify-center min-h-screen w-full px-4 pt-24 pb-12">
   <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
-    <div class="soul-glow mb-8 relative">
-      <div class="w-32 h-32 rounded-full p-1" style="background: linear-gradient(135deg, #5f0f2f, #d946ef 52%, #d4af37);">
+    <div class="soul-glow mb-6 relative">
+      <div class="w-32 h-32 rounded-full p-1" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));">
         <div class="w-full h-full rounded-full bg-black/80 flex items-center justify-center backdrop-blur-sm">
           <svg class="w-16 h-16 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M9 18V5l12-2v13"></path>
@@ -14,16 +14,16 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
           </svg>
         </div>
       </div>
-      <div class="absolute inset-0 rounded-full blur-xl" style="background: linear-gradient(135deg, rgba(95,15,47,0.55), rgba(217,70,239,0.38), rgba(212,175,55,0.26));"></div>
+      <div class="absolute inset-0 rounded-full blur-xl" style="background: linear-gradient(135deg, rgba(95,15,47,0.55), rgba(176,18,75,0.38), rgba(212,175,55,0.26));"></div>
     </div>
 
-    <h1 class="font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.14] tracking-tight mb-4 pb-[0.16em]">
+    <h1 class="font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.14] tracking-tight mb-3 pb-[0.12em]">
       <span class="inline-block text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text tracking-[0.01em]" style="background: linear-gradient(135deg, #f5d36a 0%, #8b5a22 36%, #4a2a10 64%, #f1c84f 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-stroke: 0.35px rgba(0,0,0,0.7); text-shadow: 0 1px 5px rgba(0,0,0,0.62), 0 0 6px rgba(80, 36, 14, 0.08); font-family: 'Montserrat', 'Arial', sans-serif; line-height: 1.08;">
         Blaccafy
       </span>
     </h1>
 
-    <h2 class="text-2xl md:text-4xl font-semibold tracking-tight mb-6 text-white max-w-3xl mx-auto whitespace-nowrap">
+    <h2 class="text-2xl md:text-4xl font-semibold tracking-tight mb-4 text-white max-w-3xl mx-auto whitespace-normal md:whitespace-nowrap">
       Entre dans le
       <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, var(--gradient-mid), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
         coffre musical privé
@@ -31,37 +31,24 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
       de Spykher.
     </h2>
 
-    <p class="text-lg md:text-2xl font-light max-w-3xl mx-auto mb-5 leading-relaxed" style="color: var(--text);">
-      Sons exclusifs, previews, demos, freestyles, archives.
+    <p class="text-lg md:text-2xl font-light max-w-3xl mx-auto mb-8 leading-relaxed" style="color: var(--text);">
+      Sons exclusifs, previews, demos, freestyles, classiques.
       <br>
-      Le contenu que le public n’entendra peut-être jamais.
-      <br>
-        <span class="font-medium text-transparent bg-clip-text" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
-          Hors algorithme. Pour les vrais supporters.
-        </span>
+      <span class="text-transparent bg-clip-text font-semibold" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
+        Hors algorithme. Pour fans, supporters et artistes.
+      </span>
     </p>
 
-    <p class="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-      Tu n’es pas sur une plateforme de masse.
-      <br>
-      Tu entres dans un espace privé et indépendant,
-      <br>
-      pensé pour un cercle fermé.
-    </p>
-
-    <div id="cta" class="glass-panel join-card-hover rounded-2xl p-8 max-w-md w-full mx-auto relative overflow-hidden">
+    <div id="cta" class="glass-panel join-card-hover rounded-2xl p-7 max-w-md w-full mx-auto relative overflow-hidden">
       <div id="lead-form-state" class="relative z-10">
         <h3 class="text-2xl font-semibold tracking-tight mb-4 text-center text-white">
           Rejoindre le
           <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
-            Vault
+            Free
           </span>
-          <span class="ml-2 text-sm font-medium text-amber-200/80">9€/mois</span>
         </h3>
-        <p class="text-gray-300 mb-6 text-center">
-          Accès privé au coffre.
-          <br>
-          Rareté, musique brute, cercle fermé.
+        <p class="text-gray-300 mb-6 text-center whitespace-pre-line">
+          {freeLeadCopy}
         </p>
 
         <form id="blaccafy-lead-form" class="space-y-4">
@@ -96,44 +83,77 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
           <input
             name="email"
             type="email"
-            placeholder="Ton email pour l’accès privé"
+            placeholder="Ton email pour recevoir l’accès"
             autocomplete="email"
             class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent backdrop-blur-sm"
             required
           >
 
           <button type="submit" class="cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden">
-            Entrer dans le Vault →
+            Entrer dans le Free →
           </button>
         </form>
 
+        <a
+          href={vaultCheckoutUrl}
+          class="mt-3 cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden text-center block"
+        >
+          Activer mon accès Vault 9€/mois →
+        </a>
+
         <p class="text-xs text-gray-400 text-center mt-4">
-          Accès membres • Sons hors algorithme • Soutien direct à Spykher
+          Accès d’entrée • Sons hors algorithme • Soutien direct à Spykher
         </p>
       </div>
 
       <div id="lead-success" class="hidden relative z-10 text-center">
         <h3 class="text-2xl font-semibold tracking-tight mb-3 text-white">
-          Lead capturé
+          Ton accès Free est enregistré
         </h3>
         <p class="text-gray-300 mb-6">
-          Ton accès est parti dans GHL. Tu peux maintenant ouvrir le checkout Stripe.
+          Ton inscription est enregistrée.
+          <br>
+          Un email de confirmation part vers ta boîte.
+          <br>
+          Tu peux maintenant explorer le Free ou activer le Vault.
         </p>
         <a
-          href={vaultCheckoutUrl}
+          href="#free"
           class="cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden text-center block"
         >
-          Aller au checkout Vault 9€/mois →
+          Ouvrir mon accès Free →
         </a>
         <a
-          href="#collector"
+          href={vaultCheckoutUrl}
+          class="mt-3 cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden text-center block"
+        >
+          Activer mon accès Vault 9€/mois →
+        </a>
+        <a
+          href={collectorPageHref}
           class="mt-3 w-full py-3 px-6 rounded-lg font-semibold text-white/90 relative overflow-hidden text-center block border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
         >
           Voir le Collector →
         </a>
         <p class="text-xs text-gray-400 text-center mt-4">
-          Accès membres • Sons hors algorithme • Soutien direct à Spykher
+          Accès fans • Sons hors algorithme • Soutien direct à Spykher
         </p>
+      </div>
+
+      <div id="lead-error" class="hidden relative z-10 text-center">
+        <h3 class="text-2xl font-semibold tracking-tight mb-3 text-white">
+          On a bloqué l'envoi
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Réessaie dans un instant ou contacte-nous directement si le problème persiste.
+        </p>
+        <button
+          type="button"
+          id="lead-retry"
+          class="cta-button w-full py-3 px-6 rounded-lg font-semibold text-white relative overflow-hidden"
+        >
+          Réessayer
+        </button>
       </div>
     </div>
 
@@ -146,54 +166,115 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
       ))}
     </div>
 
-    <div id="vault" class="mt-8 grid gap-4 max-w-3xl w-full md:grid-cols-2">
-      <div class="glass-panel rounded-2xl p-6 text-left">
+    <div id="spykher" class="mt-8 glass-panel rounded-2xl p-5 md:p-6 text-left">
+      <div class="grid gap-6 md:grid-cols-[1.2fr_0.8fr] items-stretch">
+        <div>
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+            Présentation artiste
+          </p>
+
+          <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+            Spykher
+          </h3>
+          <p class="mt-1 text-sm uppercase tracking-[0.2em] text-gray-400">
+            L’artiste derrière le coffre
+          </p>
+
+          <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+            Artiste dancehall, producteur indépendant et fondateur de la Dancehall System Academy. Avec Blaccafy, j’ai créé mon espace privé de streaming pour partager mon univers, mes archives, mes exclusivités et ma vision directement avec ceux qui me suivent de près.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Musique</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Communautés</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès direct</span>
+            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Collaboration</span>
+          </div>
+
+          <div class="mt-5 flex flex-col sm:flex-row gap-3">
+            <a
+              href="/spykher"
+              class="cta-button inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold text-white text-center"
+            >
+              Découvrir l’artiste →
+            </a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-2xl bg-black/30 border border-white/10 min-h-[320px] md:min-h-full">
+          <img
+            src="/spykher-portrait.jpg"
+            alt="Spykher"
+            class="absolute inset-0 h-full w-full object-cover object-center"
+            loading="lazy"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/28 via-transparent to-white/8"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="free" class="mt-8 grid gap-4 max-w-4xl w-full md:grid-cols-2">
+      <div class="glass-panel rounded-2xl p-6 text-left md:col-span-2">
         <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
-          Manifesto
+          Entrée gratuite
         </p>
 
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
-          Si l'Indépendance avait un son, Blaccafy t'y donne accès
+          {freeTitle}
         </h3>
-        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
-          Blaccafy est un coffre fort musical : privé, rare, direct. Pas une vitrine. Un accès et une preuve d'Indépendance.
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+          {freeCopy}
         </p>
-      </div>
 
-      <div id="archives" class="glass-panel rounded-2xl p-6 text-left">
-        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
-          Dans le coffre
-        </p>
-        <div class="flex flex-wrap gap-2 text-sm text-gray-200">
-          {archiveTags.map((tag) => (
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
-              {tag}
-            </span>
-          ))}
+        <div class="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex flex-wrap gap-2 text-sm text-gray-200">
+            {freeBullets.map((item) => (
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href="#cta"
+            class="cta-button inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold text-white text-center shrink-0"
+          >
+            Entrer dans le Free →
+          </a>
         </div>
       </div>
+    </div>
 
+    <div id="vault" class="mt-8 grid gap-4 max-w-4xl w-full md:grid-cols-2">
       <div class="glass-panel rounded-2xl p-6 text-left">
         <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
           Offre centrale
         </p>
 
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
-          Blaccafy Vault 9€/mois
+          Blaccafy Vault
         </h3>
         <p class="mt-4 text-sm text-gray-300 leading-relaxed">
-          Le membership de base pour entrer dans le coffre, suivre les drops, et rester au centre du cercle.
+          C'est le membership de base pour entrer dans mon coffre, suivre les drops mensuels, accéder à mes sons unreleased, des maquettes et démos que le grand public n'entendra jamais et rester à jour sur mes actualités, et plus.
         </p>
         <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès privé</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Contenu rare</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Base récurrente</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès Privé</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Contenu Rare</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Unreleased</span>
+        </div>
+        <div class="mt-5">
+          <a
+            href={vaultCheckoutUrl}
+            class="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-all"
+          >
+            Activer mon accès Vault à 9€/mois
+          </a>
         </div>
       </div>
 
       <div id="collector" class="glass-panel rounded-2xl p-6 text-left">
         <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
-          Upsell
+          ONE TIME DROP
         </p>
 
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
@@ -208,6 +289,82 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
               {item}
             </span>
           ))}
+        </div>
+        <div class="mt-5">
+          <a
+            href={collectorPageHref}
+            class="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-all"
+          >
+            Accéder à mon Drop Collector à partir de 19€
+          </a>
+        </div>
+      </div>
+
+      <div id="vip" class="glass-panel rounded-2xl p-6 text-left">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+          Superfans
+        </p>
+
+        <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+          {vipTitle}
+        </h3>
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-2xl">
+          {vipCopy}
+        </p>
+        <div class="mt-4 grid grid-cols-1 gap-2 text-sm text-gray-200 sm:grid-cols-3">
+          {vipBullets.map((item) => (
+            <span class="flex min-w-0 w-full items-center justify-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-center leading-tight whitespace-normal sm:whitespace-nowrap">
+              {item}
+            </span>
+          ))}
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <a
+            href={vipPageHref}
+            class="inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+          >
+            En savoir plus sur Blaccafy VIP
+          </a>
+          <a
+            href={vipCheckoutUrl}
+            class="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-all"
+          >
+            Activer mon accès VIP 19€/mois →
+          </a>
+        </div>
+      </div>
+
+      <div id="studio" class="glass-panel rounded-2xl p-6 text-left">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-3">
+          Artistes
+        </p>
+
+        <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
+          {studioTitle}
+        </h3>
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
+          {studioCopy}
+        </p>
+        <div class="mt-4 grid grid-cols-1 gap-2 text-sm text-gray-200 sm:grid-cols-3">
+          {studioBullets.map((item) => (
+            <span class="flex min-w-0 w-full items-center justify-center rounded-full border border-white/10 bg-white/10 px-3 py-1 text-center leading-tight whitespace-normal sm:whitespace-nowrap">
+              {item}
+            </span>
+          ))}
+        </div>
+        <div class="mt-5 flex flex-col gap-3">
+          <a
+            href={studioPageHref}
+            class="inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10 transition-all"
+          >
+            En savoir plus sur Blaccafy Studio
+          </a>
+          <a
+            href={studioCheckoutUrl}
+            class="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-all"
+          >
+            Activer mon accès Studio 49€/mois
+          </a>
         </div>
       </div>
 
@@ -235,14 +392,28 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
   </div>
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ leadWebhookUrl }}>
   const form = document.getElementById('blaccafy-lead-form');
   const leadFormState = document.getElementById('lead-form-state');
   const leadSuccess = document.getElementById('lead-success');
+  const leadError = document.getElementById('lead-error');
+  const leadRetry = document.getElementById('lead-retry');
   const formOpenedAt = Date.now();
+
+  const showState = (state) => {
+    leadFormState?.classList.toggle('hidden', state !== 'form');
+    leadSuccess?.classList.toggle('hidden', state !== 'success');
+    leadError?.classList.toggle('hidden', state !== 'error');
+  };
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    if (form.dataset.submitting === 'true') {
+      return;
+    }
+
+    form.dataset.submitting = 'true';
 
     const button = form.querySelector('button[type="submit"]');
     const formData = new FormData(form);
@@ -267,10 +438,26 @@ import { archiveTags, collectorBullets, collectorCopy, collectorTitle, dropSessi
         mode: 'no-cors',
         body: new URLSearchParams(formData)
       });
-    } finally {
-      leadFormState?.classList.add('hidden');
-      leadSuccess?.classList.remove('hidden');
+      showState('success');
       form.reset();
+    } catch (error) {
+      console.error('Blaccafy lead webhook failed', error);
+      form.dataset.submitting = 'false';
+      showState('error');
+      if (button) {
+        button.removeAttribute('disabled');
+        button.textContent = 'Entrer dans le Free →';
+      }
+    }
+  });
+
+  leadRetry?.addEventListener('click', () => {
+    form.dataset.submitting = 'false';
+    showState('form');
+    const button = form?.querySelector('button[type="submit"]');
+    if (button) {
+      button.removeAttribute('disabled');
+      button.textContent = 'Entrer dans le Free →';
     }
   });
 </script>

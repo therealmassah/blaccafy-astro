@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedBackdrop from '../components/AnimatedBackdrop.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import {
+  studioCaptureHref,
+  studioFaq,
+  studioHeroPills,
+  studioIncluded,
+  studioMonthlySystem,
+  studioPainPoints,
+  studioProofQuotes,
+  studioTitle
+} from '../data/landing';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Blaccafy Studio"
+  description="La porte artistes de Blaccafy : capture propre puis paiement Stripe pour accéder aux ressources, au cadre et aux contenus du mois."
+>
+  <AnimatedBackdrop slot="backdrop" />
+  <SiteHeader slot="header" />
+
+  <section class="relative z-10 flex items-center justify-center min-h-screen w-full px-4 pt-28 pb-16">
+    <div class="max-w-6xl mx-auto w-full">
+      <a href="/" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors mb-5">
+        ← Retour à la page principale
+      </a>
+
+      <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] items-start">
+        <div class="glass-panel rounded-3xl p-8 md:p-10">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            Artistes / Académie
+          </p>
+
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight max-w-2xl">
+            {studioTitle}
+          </h1>
+
+          <p class="mt-4 text-lg md:text-xl font-semibold text-white/90 leading-snug max-w-2xl">
+            Le cercle privé des artistes. Tu accèdes à des ressources, une communauté et de la formation.
+          </p>
+
+          <p class="mt-5 text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
+            C'est mon plan Blaccafy, pensé pour les Artistes avec riddims mensuels, refrains, toplines et placement One riddim. Accède à mon académie, la Dancehall System Academy. Reçois chaque mois des ressources concrètes, un cadre clair et une direction simple pour sortir plus de musique en collaborant avec moi ou d'autres artistes. Créons notre mouvement
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            {studioHeroPills.map((pill) => (
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm text-gray-100">
+                {pill}
+              </span>
+            ))}
+          </div>
+
+          <div class="mt-8 flex flex-col gap-3 max-w-2xl">
+            <a
+              href={studioCaptureHref}
+              class="cta-button inline-flex w-full items-center justify-center rounded-lg px-5 py-3 font-semibold text-white text-center"
+            >
+              Entrer dans Blaccafy par l'accès Studio à 49€/mois
+            </a>
+          </div>
+
+          <p class="mt-4 text-xs text-gray-400">
+            Rejoins l'écosystème artistes, récupères la matière du mois, avances avec un cadre simple.
+          </p>
+
+          <div class="mt-10 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Le problème</p>
+              <ul class="space-y-2 text-sm text-gray-300 leading-relaxed">
+                {studioPainPoints.map((item) => (
+                  <li>• {item}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Le système</p>
+              <ul class="space-y-2 text-sm text-gray-300 leading-relaxed">
+                {studioMonthlySystem.map((item) => (
+                  <li>• {item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="glass-panel rounded-3xl p-8 md:p-10 sticky top-28">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            Ce que tu obtiens
+          </p>
+
+          <div class="space-y-3">
+            {studioIncluded.map((item) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-100">
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 rounded-2xl border border-amber-200/20 bg-amber-200/10 p-5">
+            <p class="text-sm font-semibold text-white">Lecture simple</p>
+            <p class="mt-2 text-sm text-gray-300 leading-relaxed">
+              Tu n'investis par dans une banque de sons. Tu rejoins une communauté avec un rythme mensuel où les ressources, les sons et le cadre avancent ensemble.
+            </p>
+          </div>
+
+          <div class="mt-5 rounded-2xl border border-white/10 bg-black/20 p-5">
+            <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-3">Accès</p>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              L'accès te donne les contenus du mois, lisibles et récupérables dans ton espace privé et l'accès à l'Académie Dancehall où trouver formations, réseaux et ressources.
+            </p>
+          </div>
+        </aside>
+      </div>
+
+      <div id="what-you-get" class="mt-8 grid gap-6 lg:grid-cols-2">
+        <div class="glass-panel rounded-3xl p-8">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            Pourquoi ça marche
+          </p>
+          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight">
+            Un mois = une direction claire
+          </h2>
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            Les artistes avancent mieux quand ils ont un rythme, une matière concrète et un cadre simple à suivre. Studio reprend cette logique pour te donner une direction claire chaque mois.
+          </p>
+          <div class="mt-5 flex flex-wrap gap-2 md:flex-nowrap">
+            <span class="inline-flex items-center justify-center rounded-full bg-white/10 border border-white/10 px-3 py-1 text-sm text-gray-100 whitespace-nowrap">1 mois = 1 son</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-white/10 border border-white/10 px-3 py-1 text-sm text-gray-100 whitespace-nowrap">Riddim phare</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-white/10 border border-white/10 px-3 py-1 text-sm text-gray-100 whitespace-nowrap">Cadre collectif</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-white/10 border border-white/10 px-3 py-1 text-sm text-gray-100 whitespace-nowrap">Routine répétable</span>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-8">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            Preuves
+          </p>
+          <div class="space-y-4">
+            {studioProofQuotes.map((item) => (
+              <blockquote class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-base md:text-lg text-white/90 leading-relaxed">“{item.quote}”</p>
+                <footer class="mt-3 text-sm text-gray-400">{item.author}</footer>
+              </blockquote>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 glass-panel rounded-3xl p-8 md:p-10">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+              Ce que tu rejoins vraiment
+            </p>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-white leading-tight">
+              Blaccafy Studio, c’est l’espace artistes pensé pour avancer sans te disperser avec Coffre Musical, Académie et Communauté d'Artistes.
+            </h2>
+          </div>
+          <a
+            href={studioCaptureHref}
+            class="cta-button inline-flex items-center justify-center rounded-lg px-5 py-3 font-semibold text-white text-center"
+          >
+            Accèder à Blaccafy Studio
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-4 md:grid-cols-2">
+        {studioFaq.map((item) => (
+          <div class="glass-panel rounded-3xl p-6">
+            <p class="text-sm uppercase tracking-[0.22em] text-amber-200/70 mb-3">FAQ</p>
+            <h3 class="text-lg font-semibold text-white leading-snug">{item.q}</h3>
+            <p class="mt-3 text-sm text-gray-300 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-8 glass-panel rounded-3xl p-8 md:p-10 text-center">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+          Entrer maintenant
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          Entre dans le Studio et reste actif, créatif et productif.
+        </h2>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Si tu veux collaborer avec moi et d'autres artistes en recevant des ressources et des conseils dans un cadre clair et une direction mensuelle pour sortir plus de sons ? Tu es au bon endroit.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={studioCaptureHref}
+            class="cta-button inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold text-white text-center"
+          >
+            Accèder à Blaccafy Studio
+          </a>
+          <a
+            href="/"
+            class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-all"
+          >
+            Revenir à la page principale
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>

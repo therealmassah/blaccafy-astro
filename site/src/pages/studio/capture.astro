@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AnimatedBackdrop from '../../components/AnimatedBackdrop.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import CapturePage from '../../components/CapturePage.astro';
+import { studioCheckoutUrl } from '../../data/landing';
+import '../../styles/global.css';
+---
+
+<BaseLayout
+  title="Studio - Capture"
+  description="Capture Studio avant le paiement Stripe 49€/mois."
+>
+  <AnimatedBackdrop slot="backdrop" />
+  <SiteHeader slot="header" />
+  <CapturePage
+    eyebrow="Capture Studio"
+    title="Blaccafy Studio"
+    subtitle="Laisse tes infos, puis passe au paiement 49€/mois."
+    copy="Tu arrives ici avant le paiement pour être orienté proprement et recevoir le bon chemin d'accès. Une fois le formulaire envoyé, tu es redirigé vers le paiement Stripe du mois."
+    bullets={['49€/mois', 'Capture propre', 'Paiement Stripe', 'Accès privé']}
+    interest="studio"
+    ctaLabel="Continuer vers le paiement"
+    successTitle="Capture enregistrée"
+    successCopy="Ton accès est préparé. Tu es redirigé vers le paiement Stripe 49€/mois dans un instant."
+    nextHref={studioCheckoutUrl}
+    nextLabel="Passer au paiement 49€/mois"
+    backHref="/studio"
+    backLabel="Retour à Studio"
+  />
+  <SiteFooter slot="footer" />
+</BaseLayout>

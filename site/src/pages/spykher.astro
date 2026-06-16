@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AnimatedBackdrop from '../components/AnimatedBackdrop.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { vipPageHref } from '../data/landing';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="Spykher"
+  description="Présentation de Spykher, son parcours, sa vision et la raison d'être de Blaccafy."
+>
+  <AnimatedBackdrop slot="backdrop" />
+  <SiteHeader slot="header" />
+
+  <section class="relative z-10 flex items-center justify-center min-h-screen w-full px-4 pt-28 pb-16">
+    <div class="max-w-6xl mx-auto w-full">
+      <a href="/" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors mb-5">
+        ← Retour à la page principale
+      </a>
+
+      <div class="flex flex-col gap-8 w-full">
+        <div class="glass-panel rounded-3xl p-8 md:p-10 w-full">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            À propos
+          </p>
+
+          <div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight max-w-2xl">
+              Spykher
+            </h1>
+
+            <p class="mt-4 text-lg md:text-xl font-semibold text-white/90 leading-snug max-w-2xl">
+              Artiste Dancehall, Producteur, Entrepreneur.
+              <br>
+              Créateur de Blaccafy, Fondateur de Dancehall System Academy.
+            </p>
+
+            <p class="mt-5 text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
+              Je viens du terrain. J'ai commencé sans label, sans raccourci, sans <br>
+              attendre qu'une structure extérieure me donne la permission d'exister. <br>
+              J'ai appris à écrire, produire, performer, construire, transmettre et <br>
+              avancer avec mes propres moyens.
+            </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm text-gray-100 whitespace-normal">20+ ans de vision</span>
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm text-gray-100 whitespace-normal">Indépendance</span>
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm text-gray-100 whitespace-normal">Transmission</span>
+              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-sm text-gray-100 whitespace-normal">Système</span>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-3 max-w-xl">
+              <a
+                href={vipPageHref}
+                class="cta-button inline-flex w-full items-center justify-center rounded-lg px-5 py-3 font-semibold text-white text-center"
+              >
+                Soutenez et Participez à la vision
+              </a>
+            </div>
+
+            <p class="mt-4 text-xs text-gray-400">
+              Mon objectif n'est pas seulement de faire écouter ma musique. Mon objectif est de montrer un modèle.
+            </p>
+
+            <div class="mt-10 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Mon parcours</p>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                  Depuis plus de 20 ans, ma musique est liée à une vision plus large que le simple divertissement : l'indépendance, la création de valeur, la transmission, la discipline et la contribution. J'ai fait les choses à ma manière, régalé une génération et aidé des milliers d'artistes.
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Blaccafy</p>
+                <p class="text-sm text-gray-300 leading-relaxed">
+                  J'ai créé Blaccafy pour reprendre le contrôle de ma musique, de ma communauté et de ma relation avec le public. C'est un coffre vivant : mes sons, mes archives, mes unreleased, mes freestyles, mes avant-premières, mes éditions rares, mes coulisses et mes projets spéciaux.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-8 md:p-10 w-full flex flex-col gap-6">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight text-center max-w-3xl mx-auto">
+              Pour qui ai-je créé la plateforme Blaccafy ?
+            </h2>
+            <div class="h-px w-full bg-white/10 mt-4"></div>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-black/20 p-6 md:p-7">
+            <p class="text-xs uppercase tracking-[0.22em] text-amber-200/80 mb-3">Le système</p>
+            <p class="text-lg font-semibold text-white leading-snug max-w-2xl">
+              Un artiste doit construire un système autour de son art.
+            </p>
+            <p class="mt-4 text-sm md:text-base text-gray-300 leading-tight max-w-none whitespace-normal">
+              Blaccafy a été créé pour les fans, les supporters et les artistes qui veulent un accès direct, utile et durable à l'univers de Spykher.
+            </p>
+          </div>
+
+          <div class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Pour les fans</p>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Un accès plus proche, plus direct et plus authentique à mon univers.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Pour les supporters</p>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Une manière concrète de soutenir ma vision sans intermédiaire inutile.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70 mb-2">Pour les artistes</p>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Un exemple vivant de ce qu'on peut créer quand on arrête d'attendre et qu'on commence à bâtir.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-6 lg:grid-cols-2">
+        <div class="glass-panel rounded-3xl p-8">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            Pourquoi Blaccafy existe
+          </p>
+          <h2
+            id="spykher-manifesto"
+            class="max-w-[30rem] text-left text-xl sm:text-2xl md:text-[1.95rem] lg:text-[2.05rem] xl:text-[2.2rem] font-semibold tracking-tight text-white leading-[0.9]"
+            style="text-wrap: balance;"
+          >
+            <span class="block">Blaccafy n'est pas une plateforme.</span>
+            <span class="block">C'est une déclaration d'indépendance.</span>
+          </h2>
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            Ici, tu peux entrer dans mon univers autrement. Pas seulement écouter un morceau qui passe dans un flux. Pas seulement tomber sur un titre entre deux algorithmes. Mais accéder à un coffre vivant, à une relation plus directe et à un modèle qui montre ce qu'il est possible de bâtir.
+          </p>
+        </div>
+
+        <div class="glass-panel rounded-3xl p-8">
+          <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+            La Première Académie Dancehall
+          </p>
+          <h2 class="max-w-3xl text-2xl md:text-3xl lg:text-[2.05rem] font-semibold tracking-tight text-white leading-[1.02]">
+            <span class="block">Dancehall System Academy</span>
+            <span class="block">étend cette vision aux artistes.</span>
+          </h2>
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            Dancehall System Academy (DSA) aide les artistes Dancehall et Shatta indépendants à sortir de l'isolement, structurer leur projet, progresser, produire davantage et transformer leur passion en véritable système d'exécution et de développement autonome.<br>
+            J'y partage mes 20 ans d'expériences et mes ressources.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 glass-panel rounded-3xl p-8 md:p-10 text-center">
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-200/70 mb-4">
+          Bienvenue dans Blaccafy
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          Le streaming privé de Spykher.
+        </h2>
+        <p class="mt-4 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Un système indépendant pour les fans, les supporters et les artistes <br>
+          qui valorisent Indépendance et Souveraineté
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href={vipPageHref}
+            class="cta-button inline-flex items-center justify-center rounded-lg px-6 py-3 font-semibold text-white text-center"
+          >
+            Soutenez et Participez à la vision
+          </a>
+          <a
+            href="/"
+            class="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-all"
+          >
+            Revenir à la page principale
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter slot="footer" />
+</BaseLayout>
+
+<script is:inline>
+  const fitTwoLineHeading = () => {
+    const heading = document.getElementById('spykher-manifesto');
+
+    if (!heading) {
+      return;
+    }
+
+    const parent = heading.parentElement;
+
+    if (!parent) {
+      return;
+    }
+
+    const minSize = 14;
+    const maxSize = 28;
+
+    heading.style.display = 'block';
+    heading.style.whiteSpace = 'normal';
+
+    const fits = () => heading.scrollWidth <= parent.clientWidth;
+
+    let low = minSize;
+    let high = maxSize;
+    let best = minSize;
+
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      heading.style.fontSize = `${mid}px`;
+
+      if (fits()) {
+        best = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+
+    heading.style.fontSize = `${best}px`;
+  };
+
+  const scheduleFit = () => {
+    window.requestAnimationFrame(fitTwoLineHeading);
+  };
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(scheduleFit);
+  } else {
+    scheduleFit();
+  }
+
+  window.addEventListener('resize', scheduleFit, { passive: true });
+
+  const headingObserver = new ResizeObserver(scheduleFit);
+  const heading = document.getElementById('spykher-manifesto');
+
+  if (heading) {
+    headingObserver.observe(heading.parentElement ?? heading);
+  }
+</script>

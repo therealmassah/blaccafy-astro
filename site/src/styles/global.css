@@ -116,7 +116,7 @@ body::selection {
 
 .beat-bar {
   width: 3px;
-  background: linear-gradient(to top, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
   border-radius: 2px;
   animation: beatPulse 1.5s infinite ease-in-out;
 }

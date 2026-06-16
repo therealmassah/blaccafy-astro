@@ -3,7 +3,7 @@ import { navLinks } from '../data/landing';
 ---
 
 <nav class="fixed top-0 left-0 w-full z-30 flex justify-center transition-all duration-300" aria-label="Navigation principale">
-  <div class="glass-panel rounded-2xl px-6 py-3 flex justify-between items-center gap-8 max-w-5xl w-[95%] md:w-4/5 lg:w-3/4 xl:w-2/3 mt-4 mx-auto">
+  <div class="glass-panel relative rounded-2xl px-6 py-3 flex justify-between items-center gap-8 max-w-5xl w-[95%] md:w-4/5 lg:w-3/4 xl:w-2/3 mt-4 mx-auto">
     <div class="flex items-center gap-2">
       <div class="beat-indicator" aria-hidden="true">
         <div class="beat-bar"></div>
@@ -30,10 +30,58 @@ import { navLinks } from '../data/landing';
       ))}
     </div>
 
-    <button class="md:hidden text-white" type="button" aria-label="Ouvrir le menu">
+    <button class="md:hidden text-white" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu" id="mobile-menu-button">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
+
+    <div id="mobile-menu" hidden class="md:hidden hidden absolute left-0 right-0 top-full mt-3 rounded-2xl border border-white/15 px-4 py-4 shadow-2xl" style="background: rgba(3, 3, 3, 0.96); backdrop-filter: blur(8px);">
+      <div class="flex flex-col gap-2 text-sm font-medium text-white">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'rounded-lg px-4 py-3 transition-colors',
+              link.variant ? 'bg-white/10 border border-amber-200/20 hover:bg-white/15' : 'hover:bg-white/5 hover:text-fuchsia-300'
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
   </div>
 </nav>
+
+<script is:inline>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  const setOpen = (open) => {
+    if (menu) {
+      menu.hidden = !open;
+      menu.classList.toggle('hidden', !open);
+    }
+    button?.setAttribute('aria-expanded', open ? 'true' : 'false');
+  };
+
+  setOpen(false);
+
+  button?.addEventListener('click', () => {
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    setOpen(!isOpen);
+  });
+
+  menu?.addEventListener('click', (event) => {
+    if (event.target instanceof HTMLAnchorElement) {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      setOpen(false);
+    }
+  }, { passive: true });
+</script>
