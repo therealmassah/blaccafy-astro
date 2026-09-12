@@ -32,7 +32,7 @@ import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dro
     </h2>
 
     <p class="text-lg md:text-2xl font-light max-w-3xl mx-auto mb-8 leading-relaxed" style="color: var(--text);">
-      Sons exclusifs, previews, demos, freestyles, classiques.
+      Sons exclusifs, previews, démos, freestyles, classiques.
       <br>
       <span class="text-transparent bg-clip-text font-semibold" style="background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; background-clip: text;">
         Hors algorithme. Pour fans, supporters et artistes.
@@ -222,14 +222,14 @@ import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dro
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
           {freeTitle}
         </h3>
-        <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-3xl">
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed max-w-5xl xl:whitespace-nowrap">
           {freeCopy}
         </p>
 
-        <div class="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div class="flex flex-wrap gap-2 text-sm text-gray-200">
+        <div class="mt-4 flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+          <div class="flex flex-wrap xl:flex-nowrap gap-2 text-xs sm:text-sm text-gray-200">
             {freeBullets.map((item) => (
-              <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
+              <span class="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-white/10 border border-white/10 whitespace-nowrap">
                 {item}
               </span>
             ))}
@@ -254,12 +254,12 @@ import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dro
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
           Blaccafy Vault
         </h3>
-        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
-          C'est le membership de base pour entrer dans mon coffre, suivre les drops mensuels, accéder à mes sons unreleased, des maquettes et démos que le grand public n'entendra jamais et rester à jour sur mes actualités, et plus.
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed md:min-h-[4.75rem]">
+          Blaccafy Vault est le coffre privé. Tu accèdes aux sons unreleased, maquettes, démos et drops mensuels pour 9€/mois.
         </p>
         <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès Privé</span>
-          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Contenu Rare</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Accès privé</span>
+          <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Contenu rare</span>
           <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">Unreleased</span>
         </div>
         <div class="mt-5">
@@ -280,12 +280,12 @@ import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dro
         <h3 class="text-xl font-semibold tracking-tight text-white leading-snug">
           {collectorTitle}
         </h3>
-        <p class="mt-4 text-sm text-gray-300 leading-relaxed">
+        <p class="mt-4 text-sm text-gray-300 leading-relaxed md:min-h-[4.75rem]">
           {collectorCopy}
         </p>
-        <div class="mt-4 flex flex-wrap gap-2 text-sm text-gray-200">
+        <div class="mt-4 flex flex-nowrap gap-2 text-xs sm:text-sm text-gray-200">
           {collectorBullets.map((item) => (
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10">
+            <span class="shrink-0 px-2.5 sm:px-3 py-1 rounded-full bg-white/10 border border-white/10 whitespace-nowrap">
               {item}
             </span>
           ))}
@@ -295,7 +295,7 @@ import { collectorBullets, collectorCopy, collectorPageHref, collectorTitle, dro
             href={collectorPageHref}
             class="inline-flex w-full items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-gray-200 transition-all"
           >
-            Accéder à mon Drop Collector à partir de 19€
+            Accéder au Drop Collector
           </a>
         </div>
       </div>

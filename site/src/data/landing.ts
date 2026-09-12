@@ -9,6 +9,9 @@ export const navLinks = [
 ];
 
 export const leadWebhookUrl = 'https://automate.blaccflagg.com/webhook/blaccafy/mvp/lead';
+export const navidromeWrapperUrl = (import.meta.env.PUBLIC_NAVIDROME_WRAPPER_URL ?? 'https://navidrome-wrapper.blaccflagg.com').replace(/\/$/, '');
+export const navidromeActivationUrl = `${navidromeWrapperUrl}/activate`;
+export const publicActivationPageUrl = (import.meta.env.PUBLIC_ACTIVATION_PAGE_URL ?? 'https://blaccafy.spykher.com/activate').replace(/\/$/, '');
 export const spykherPageHref = '/spykher';
 export const vaultCheckoutUrl = 'https://buy.stripe.com/dRm4gz7M0a8qdgT6rA73G02';
 export const vipCheckoutUrl = import.meta.env.PUBLIC_VIP_STRIPE_CHECKOUT_URL ?? 'https://buy.stripe.com/5kQ5kD2rG2FY4KndU273G05';
@@ -21,44 +24,43 @@ export const collectorPageHref = '/collector';
 export const collectorCheckoutUrl = 'https://buy.stripe.com/8x2dR9giwdkCb8L8zI73G06';
 
 export const featurePills = [
-  '🔐 Sons exclusifs',
-  '🗝️ Accès privé',
-  '⚡ Soutien direct',
-  '🥂 Cercle privé'
+  'Sons exclusifs',
+  'Accès privé',
+  'Soutien direct',
+  'Cercle privé'
 ];
 
 export const freeTitle = 'Blaccafy Free';
 
 export const freeLeadCopy = `La porte d’entrée gratuite vers Blaccafy.
-Premier niveau d'accès, preview du coffre,
-Passage vers le Vault.`;
+Découvre l'univers, les previews et le chemin vers le Vault.`;
 
-export const freeCopy = 'La porte d’entrée gratuite pour rejoindre mon univers Blaccafy, accéder à mes classiques depuis mes débuts dans l’underground et découvrir mes premiers titres exclusifs, sans payer.';
+export const freeCopy = 'Blaccafy Free est la porte d’entrée gratuite pour découvrir mon univers, les previews du coffre et le chemin vers le Vault.';
 
 export const freeBullets = [
   "Accès d'entrée",
-  'Premiers Projets',
+  'Classiques et previews',
   'Preview du coffre',
   'Passage vers le Vault'
 ];
 
-export const dropSessionTitle = 'Premier drop / listening session';
+export const dropSessionTitle = 'Premier drop privé';
 
-export const dropSessionCopy = 'Ce sera la première écoute privée pour inaugurer le Vault, découvrir des extraits et des morceaux exclusifs, partager et échanger directement avec moi pour ressentir le projet avant le public.';
+export const dropSessionCopy = 'Le premier moment privé pour découvrir l’univers Blaccafy, écouter des extraits en avance et entrer dans le cercle avant le public.';
 
 export const dropSessionBullets = [
   'Preview exclusive',
   'Écoute privée',
-  'Feedback des premiers membres',
+  'Premiers membres',
   'Accès au prochain drop'
 ];
 
 export const collectorTitle = 'Blaccafy Collector';
 
-export const collectorCopy = 'Ce sont mes drops limités pour les fans et supporters qui veulent les morceaux les plus rares, les bundles et les éditions spéciales, souvent accompagnés de goodies, du merch, livres, formations ou accès direct privé à moi même.';
+export const collectorCopy = 'Blaccafy Collector donne accès aux drops rares, éditions spéciales et expériences privées liées à l’univers Blaccafy.';
 
 export const collectorLeadCopy = `Le bundle Shatta Kids réunit l'EP Shatta Kids interprété par ma fille et moi, et le cahier d'activité pour enfant Blacc Diamond Kids.
-Pensé pour les parents fans, pour divertir leur enfant de façon ludique et transmettre tôt ce qu'ils ont appris tard.`;
+Pensé pour les parents fans qui veulent un objet collector utile, musical et familial.`;
 
 export const collectorHeroPills = [
   'EP Shatta Kids',
@@ -97,31 +99,31 @@ export const collectorFaq = [
 ];
 
 export const collectorBullets = [
-  'Goodies',
+  'Drops rares',
   'Quantité limitée',
-  'Éditions Spéciales'
+  'Éditions spéciales'
 ];
 
 export const vipTitle = 'Blaccafy VIP';
 
 export const vipSubtitle = `Le cercle privé de mes vrais fans et supporters. Tu accèdes aux avant-premières, aux contenus réservés et à une proximité sans bruit inutile.`;
 
-export const vipCopy = `C'est le cercle privé de mes vrais fans et supporters. En plus de tout ce que contient le coffre, accèdes aux Avant-premières des sorties, contenus réservés et des lives pour une proximité sans bruit inutile dans ma communauté privée, Shxtta Bxss Squad.`;
+export const vipCopy = `Blaccafy VIP est le cercle privé des vrais fans. Tu accèdes aux avant-premières, aux contenus réservés et à une proximité plus directe avec l'univers Blaccafy.`;
 
 export const vipBullets = [
-  'Avant-Premières',
-  'Contenus Inédits',
-  'Cercle Privé'
+  'Avant-premières',
+  'Contenus réservés',
+  'Cercle privé'
 ];
 
 export const studioTitle = 'Blaccafy Studio';
 
-export const studioCopy = `C'est mon plan Blaccafy pour les artistes. Reçois chaque mois de nouveaux riddims, des toplines et refrains à exploiter. Accèdes à Dancehall System Academy où j'offre un cadre clair et une direction simple pour sortir plus de musique. Pensé pour les artistes par un Artiste.`;
+export const studioCopy = `Blaccafy Studio est le cercle privé des artistes. Tu reçois des riddims mensuels, toplines, refrains et un cadre simple pour sortir plus de musique.`;
 
 export const studioBullets = [
   'Riddims & Stems',
   'Toplines & Refrains',
-  'Académie'
+  'Cadre artistes'
 ];
 
 export const studioHeroPills = [
