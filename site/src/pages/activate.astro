@@ -7,6 +7,7 @@ import { navidromeActivationUrl } from '../data/landing';
 import '../styles/global.css';
 
 const email = Astro.url.searchParams.get('email') ?? '';
+const token = Astro.url.searchParams.get('token') ?? '';
 ---
 
 <BaseLayout
@@ -44,7 +45,7 @@ const email = Astro.url.searchParams.get('email') ?? '';
         <div id="activation-state" class="mt-8 max-w-xl">
           <form id="activation-form" class="space-y-4">
             <input name="email" type="hidden" value={email}>
-            <input name="token" type="hidden" value="">
+            <input name="token" type="hidden" value={token}>
 
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-gray-300 leading-relaxed">
               <p class="font-semibold text-white">Règles simples</p>
@@ -122,6 +123,7 @@ const email = Astro.url.searchParams.get('email') ?? '';
   const emailField = form?.querySelector('input[name="email"]');
   const tokenField = form?.querySelector('input[name="token"]');
   const emailValue = String(emailField?.value ?? '').trim();
+  const tokenValue = String(tokenField?.value ?? '').trim();
 
   const showState = (value) => {
     state?.classList.toggle('hidden', value !== 'form');
@@ -148,10 +150,12 @@ const email = Astro.url.searchParams.get('email') ?? '';
     tokenField.value = payload.activationToken;
   };
 
-  issueToken().catch((error) => {
-    errorText.textContent = error instanceof Error ? error.message : 'Réessaie dans un instant.';
-    showState('error');
-  });
+  if (!tokenValue) {
+    issueToken().catch((error) => {
+      errorText.textContent = error instanceof Error ? error.message : 'Réessaie dans un instant.';
+      showState('error');
+    });
+  }
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
