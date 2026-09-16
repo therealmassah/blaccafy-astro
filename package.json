@@ -3,6 +3,8 @@
   "scripts": {
     "dev": "npm --prefix site run dev",
     "build": "npm --prefix site run build",
-    "preview": "npm --prefix site run preview"
+    "preview": "npm --prefix site run preview",
+    "navidrome-wrapper": "npm --prefix services/navidrome-wrapper run start",
+    "navidrome-wrapper:dev": "npm --prefix services/navidrome-wrapper run dev"
   }
 }

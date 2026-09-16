@@ -1,0 +1,14 @@
+{
+  "id": "com.blaccflagg.navidrome-wrapper",
+  "title": "Blaccafy Navidrome Wrapper",
+  "author": "Massah",
+  "description": "Internal Navidrome admin wrapper for Blaccafy.",
+  "tagline": "Internal admin wrapper for Navidrome",
+  "version": "1.0.1",
+  "manifestVersion": 2,
+  "httpPort": 8787,
+  "addons": {
+    "localstorage": {}
+  },
+  "healthCheckPath": "/health"
+}

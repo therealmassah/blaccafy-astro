@@ -5,6 +5,9 @@
 !/.github/**
 !/site/
 !/site/**
+!/services/
+!/services/navidrome-wrapper/
+!/services/navidrome-wrapper/**
 dist/
 .astro/
 .wrangler/
