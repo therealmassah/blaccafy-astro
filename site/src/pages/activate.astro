@@ -122,8 +122,17 @@ const token = Astro.url.searchParams.get('token') ?? '';
   const retry = document.getElementById('activation-retry');
   const emailField = form?.querySelector('input[name="email"]');
   const tokenField = form?.querySelector('input[name="token"]');
-  const emailValue = String(emailField?.value ?? '').trim();
-  const tokenValue = String(tokenField?.value ?? '').trim();
+  const params = new URLSearchParams(window.location.search);
+  const emailValue = String(emailField?.value || params.get('email') || '').trim();
+  const tokenValue = String(tokenField?.value || params.get('token') || '').trim();
+
+  if (emailField && emailValue) {
+    emailField.value = emailValue;
+  }
+
+  if (tokenField && tokenValue) {
+    tokenField.value = tokenValue;
+  }
 
   const showState = (value) => {
     state?.classList.toggle('hidden', value !== 'form');
