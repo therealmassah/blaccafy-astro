@@ -16,6 +16,7 @@ Internal wrapper for Blaccafy Navidrome provisioning.
 - `NAVIDROME_BOT_PASSWORD`
 - `NAVIDROME_LIBRARY_MAP_JSON`
 - `WRAPPER_SHARED_SECRET`
+- `CORS_ALLOWED_ORIGINS` optional, defaults to `https://blaccafy.spykher.com`
 
 ## Notes
 

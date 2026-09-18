@@ -4,7 +4,7 @@
   "author": "Massah",
   "description": "Internal Navidrome admin wrapper for Blaccafy.",
   "tagline": "Internal admin wrapper for Navidrome",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifestVersion": 2,
   "httpPort": 8787,
   "addons": {

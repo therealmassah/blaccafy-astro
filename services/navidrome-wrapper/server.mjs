@@ -15,7 +15,11 @@ const config = {
   clientUniqueId: process.env.NAVIDROME_CLIENT_UNIQUE_ID || crypto.randomUUID(),
   libraryMapJson: process.env.NAVIDROME_LIBRARY_MAP_JSON || '{}',
   activationTokenTtlMs: Number(process.env.NAVIDROME_ACTIVATION_TOKEN_TTL_MS || 7 * 24 * 60 * 60 * 1000),
-  activationStatePath: process.env.NAVIDROME_ACTIVATION_STATE_PATH || '/app/data/navidrome-activation-state.json'
+  activationStatePath: process.env.NAVIDROME_ACTIVATION_STATE_PATH || '/app/data/navidrome-activation-state.json',
+  corsAllowedOrigins: (process.env.CORS_ALLOWED_ORIGINS || 'https://blaccafy.spykher.com')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean)
 };
 
 if (!config.baseUrl) {
@@ -27,13 +31,27 @@ let activationStateCache = null;
 let activationStateLoadPromise = null;
 let activationUseLock = Promise.resolve();
 
-function json(res, status, body) {
-  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+function corsHeaders(req) {
+  const origin = req.headers.origin;
+  if (typeof origin !== 'string' || !config.corsAllowedOrigins.includes(origin)) {
+    return {};
+  }
+
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, x-blaccafy-token',
+    'Vary': 'Origin'
+  };
+}
+
+function json(req, res, status, body) {
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', ...corsHeaders(req) });
   res.end(JSON.stringify(body));
 }
 
-function text(res, status, body) {
-  res.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8' });
+function text(req, res, status, body) {
+  res.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8', ...corsHeaders(req) });
   res.end(body);
 }
 
@@ -523,14 +541,20 @@ async function executePlan(plan) {
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url || '/', 'http://localhost');
+    const sendJson = (status, body) => json(req, res, status, body);
+
+    if (req.method === 'OPTIONS') {
+      res.writeHead(204, corsHeaders(req));
+      return res.end();
+    }
 
     if (req.method === 'GET' && url.pathname === '/health') {
-      return json(res, 200, { ok: true, service: 'navidrome-wrapper' });
+      return sendJson(200, { ok: true, service: 'navidrome-wrapper' });
     }
 
     if (req.method === 'POST' && url.pathname === '/execute') {
       if (!requireSharedSecret(req)) {
-        return json(res, 401, { ok: false, error: 'Unauthorized' });
+        return sendJson(401, { ok: false, error: 'Unauthorized' });
       }
 
       const body = await readJson(req);
@@ -544,7 +568,7 @@ const server = http.createServer(async (req, res) => {
       const required = ['action', 'level', 'email', 'navidromeUser'];
       const missing = required.filter((key) => !plan[key]);
       if (missing.length) {
-        return json(res, 400, { ok: false, error: `Missing fields: ${missing.join(', ')}` });
+        return sendJson(400, { ok: false, error: `Missing fields: ${missing.join(', ')}` });
       }
 
       const result = await executePlan({
@@ -557,7 +581,7 @@ const server = http.createServer(async (req, res) => {
         keepSuggested: normalizeArray(plan.keepSuggested)
       });
 
-      return json(res, 200, result);
+      return sendJson(200, result);
     }
 
     if (req.method === 'POST' && url.pathname === '/activate') {
@@ -566,11 +590,11 @@ const server = http.createServer(async (req, res) => {
       const password = String(body.password || body.newPassword || '').trim();
 
       if (!token) {
-        return json(res, 400, { ok: false, error: 'Missing token' });
+        return sendJson(400, { ok: false, error: 'Missing token' });
       }
 
       if (password.length < 12) {
-        return json(res, 400, { ok: false, error: 'Password must be at least 12 characters long' });
+        return sendJson(400, { ok: false, error: 'Password must be at least 12 characters long' });
       }
 
       const payload = verifyActivationToken(token);
@@ -579,7 +603,7 @@ const server = http.createServer(async (req, res) => {
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Unknown error';
         const status = message === 'Activation token already used' || message === 'Activation token already in use' ? 409 : 400;
-        return json(res, status, { ok: false, error: message });
+        return sendJson(status, { ok: false, error: message });
       }
 
       try {
@@ -594,7 +618,7 @@ const server = http.createServer(async (req, res) => {
         await updatePassword(cookie, user, password);
         await commitActivationToken(payload);
 
-        return json(res, 200, {
+        return sendJson(200, {
           ok: true,
           status: 'password-updated',
           user: payload.navidromeUser,
@@ -603,32 +627,32 @@ const server = http.createServer(async (req, res) => {
       } catch (error) {
         await releaseActivationToken(payload);
         const message = error instanceof Error ? error.message : 'Unknown error';
-        return json(res, message === 'User not found' ? 404 : 500, { ok: false, error: message });
+        return sendJson(message === 'User not found' ? 404 : 500, { ok: false, error: message });
       }
     }
 
     if (req.method === 'POST' && url.pathname === '/activate/start') {
       if (!requireSharedSecret(req)) {
-        return json(res, 401, { ok: false, error: 'Unauthorized' });
+        return sendJson(401, { ok: false, error: 'Unauthorized' });
       }
 
       const body = await readJson(req);
       const email = String(body.email || url.searchParams.get('email') || '').trim();
       if (!email) {
-        return json(res, 400, { ok: false, error: 'Missing email' });
+        return sendJson(400, { ok: false, error: 'Missing email' });
       }
 
       try {
         const result = await createActivationForEmail(email);
-        return json(res, 200, result);
+        return sendJson(200, result);
       } catch (error) {
-        return json(res, 404, { ok: false, error: error instanceof Error ? error.message : 'Unknown error' });
+        return sendJson(404, { ok: false, error: error instanceof Error ? error.message : 'Unknown error' });
       }
     }
 
-    return json(res, 404, { ok: false, error: 'Not found' });
+    return sendJson(404, { ok: false, error: 'Not found' });
   } catch (error) {
-    return json(res, 500, { ok: false, error: error instanceof Error ? error.message : 'Unknown error' });
+    return json(req, res, 500, { ok: false, error: error instanceof Error ? error.message : 'Unknown error' });
   }
 });
 
